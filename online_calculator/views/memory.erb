@@ -1,18 +1,15 @@
 <html>
 	<head></head>
 	<body>
-		<form action="/operation" method="POST">
-			<input type="text" name="num1" />
+		<h1>The new calculator with amazing memory</h1>
+		<p>Memory: <%= @prev_number %></p>
+		<form action="/memory_operation" method="POST">
 			<input type="text" name="num2" />
 			<button type="submit" name="operation" value="addition">ADD</button>
 			<button type="submit" name="operation" value="sustraction">SUSTRACT</button>
 			<button type="submit" name="operation" value="multiplication">MULTIPLY</button>
 			<button type="submit" name="operation" value="division">DIVIDE</button>
 		</form>
-		<ul>
-			<li><a href="/counting">Counting</a></li>
-			<li><a href="/memory">Try our new calculator with memory</a></li>
-		</ul>
-		<p></p>
+		<p><a href="/counting">Counting</a></p>
 	</body>
 </html>
