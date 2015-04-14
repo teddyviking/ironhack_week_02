@@ -1,0 +1,32 @@
+<h1>This is the amazing ToDo List App</h1>
+
+<h2>Task List</h2>
+	<ul>
+	<% @tasks.each do |index, task| %>
+		<% if task %>
+		<li>
+			<form action="/check_task" method="POST">
+				<button type="submit" name="task_id" value= "<%=task.id%>" >
+					<%= task.text %> --- <%= task.state %> --- Added on <%=  task.date.strftime("%A %d at %H:%M") %>
+				</button>
+			</form>
+			<% if task.state == "done" %>
+				<form action="/delete_task" method="POST">
+					<button type="submit" name="task_id" value="<%=task.id%>" >
+						Delete
+					</button>
+				</form>
+			<% end %>
+		</li>
+		<% end %>			
+	<% end %>
+	</ul>
+
+
+
+<h2>Add a new task</h2>
+<form action="/add_task" method="POST">
+	<input type="text" name="text">
+	<input type="checkbox" name="priority" value="urgent">Urgent
+	<button type="submit">Add task</button>
+</form>

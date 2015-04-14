@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem  'tilt', '1.3.4'
+gem 'sinatra', '1.4.0'
+gem 'sinatra-contrib'
+gem 'mini_magick' 
+#needs imagemagick to run
