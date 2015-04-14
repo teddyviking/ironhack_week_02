@@ -1,9 +1,15 @@
 class MemoryAdministrator
-	def retrieve_number(file)
-		File.read(file)
+	def initialize
+		@file = './lib/memory.txt'
+
 	end
 
-	def store_number(file, result)
-		File.write(file, result)
+	def retrieve_number
+		file = File.read(@file)
+		file.to_i
+	end
+
+	def store_number(result)
+		File.write(@file, result)
 	end
 end
