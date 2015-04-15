@@ -2,6 +2,6 @@ require "pry"
 
 class Lexiconomitron
 	def eat_letters(word)
-		word.gsub('t', "")
+		word.downcase.gsub('t', "")
 	end
 end
