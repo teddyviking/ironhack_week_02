@@ -5,6 +5,7 @@ class Lexiconomitron
 		word.downcase.gsub('t', "")
 	end
 	def shazam(*words)
-		words.map{|word| eat_letters(word.reverse)}
+		reversed_words = words.map{|word| eat_letters(word.reverse)}
+		reversed_words.select{|word| word == reversed_words.first || word == reversed_words.last}
 	end
 end
