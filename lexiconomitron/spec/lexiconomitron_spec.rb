@@ -27,4 +27,7 @@ RSpec.describe "Lexiconomitron" do
 	it "select the words with 3 or less letters when called oompa_loompa method" do
 		expect(lexiconomitron.oompa_loompa("bug","at","robbery","tub")).to eq(["bug", "a", "ub"])
 	end
+	it "returns an empty array when all the words passed to oompa_loompa are bigger than 3 letters" do
+		expect(lexiconomitron.oompa_loompa(word,word2,"robbery",word3)).to eq([])
+	end
 end
