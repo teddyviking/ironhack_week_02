@@ -3,13 +3,16 @@ require_relative('../lexiconomitron')
 RSpec.describe "Lexiconomitron" do
 	let(:word){"tomato"}
 	let(:word2){"Totoro"}
-	let(:word3){"boring"}
+	let(:word3){"Boring"}
 	let(:lexiconomitron){Lexiconomitron.new}
 	it "eats downcase T letters of a word" do
 		expect(lexiconomitron.eat_letters(word)).to eq("omao")
 	end
 	it "eats upcase and downcase T letters of a word" do
 		expect(lexiconomitron.eat_letters(word)).to eq("omao")
+	end
+	it "leaves words without T letters untoched" do
+		expect(lexiconomitron.eat_letters(word3)).to eq("Boring")
 	end
 	it "reverse a word and eats T letters when called shazam method" do
 		expect(lexiconomitron.shazam(word)).to eq(["oamo"])
@@ -19,6 +22,6 @@ RSpec.describe "Lexiconomitron" do
 	end
 	it "reverse three words, returns only the first and the last word of the array 
 	and eats T letters when called shazam method" do
-		expect(lexiconomitron.shazam(word,word2,word3)).to eq(["oamo","gnirob"])
+		expect(lexiconomitron.shazam(word,word2,word3)).to eq(["oamo","gniroB"])
 	end
 end

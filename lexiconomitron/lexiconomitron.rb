@@ -2,7 +2,7 @@ require "pry"
 
 class Lexiconomitron
 	def eat_letters(word)
-		word.downcase.gsub('t', "")
+		word.gsub(/[tT]/, "")
 	end
 	def shazam(*words)
 		reversed_words = words.map{|word| eat_letters(word.reverse)}
