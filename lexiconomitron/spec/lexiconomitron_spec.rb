@@ -24,4 +24,7 @@ RSpec.describe "Lexiconomitron" do
 	and eats T letters when called shazam method" do
 		expect(lexiconomitron.shazam(word,word2,word3)).to eq(["oamo","gniroB"])
 	end
+	it "select the words with 3 or less letters when called oompa_loompa method" do
+		expect(lexiconomitron.oompa_loompa("bug","at","robbery","tub")).to eq(["bug", "a", "ub"])
+	end
 end
