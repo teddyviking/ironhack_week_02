@@ -1,13 +1,17 @@
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'pry'
+require 'JSON'
 require_relative ("./lib/task")
+require_relative ("./lib/memory_administrator")
 
 enable :sessions
-tasks = {}
+memory_administrator = MemoryAdministrator.new
+tasks = memory_administrator.tasks
 
 get '/' do
 	@tasks = tasks.select{|k,v| v}
+	binding.pry
 	erb :index
 end
 

@@ -7,7 +7,7 @@
 		<li>
 			<form action="/check_task" method="POST">
 				<button type="submit" name="task_id" value= "<%=task.id%>" >
-					<%= task.text %> --- <%= task.state %> --- Added on <%=  task.date.strftime("%A %d at %H:%M") %>
+					<%= task.text %> --- <%= task.state %> --- Added on <%=  task.date %>
 				</button>
 			</form>
 			<% if task.state == "done" %>

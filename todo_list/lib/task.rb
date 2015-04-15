@@ -5,10 +5,21 @@ class Task
 		@text = text
 		@priority = priority
 		@state = "undone"
-		@date = Time.now
+		@date = Time.now.strftime("%A %d at %H:%M")
 	end
 
 	def change_state
 		@state == "undone" ? @state = "done" : @state = "undone"
+	end
+
+	def task_to_JSON
+		task = {
+			id: @id,
+			text: @text,
+			priority: @priority,
+			state: @state,
+			date: @date
+		}
+		JSON.generate(task)
 	end
 end
