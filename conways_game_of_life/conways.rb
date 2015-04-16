@@ -12,7 +12,7 @@ class Cell
 		if @state == :alive
 			@state = :dead if @neighbours < 2 || @neighbours > 3
 		else
-			@state = :alive
+			@state = :alive if @neighbours == 3
 		end		
 	end
 end
