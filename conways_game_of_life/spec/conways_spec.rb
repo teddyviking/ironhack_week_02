@@ -40,13 +40,15 @@ RSpec.describe "Game of life" do
 		instance_double("Grid",
 			:cells => [cell, cell])
 	end
-	let (:game_of_life) {GameOfLife.new}
+	
 	it "uptades a grid with one cell" do
-		game_of_life.evolve_grid(grid_1)
+		game = GameOfLife.new(grid_1)
+		game.evolve_grid
 		expect(grid_1.cells[0].state).to eq(:dead)
 	end
 	it "updates a grid with two cells" do
-		game_of_life.evolve_grid(grid_2)
-		expect(grid_2.cells.deads_and_alives).to eq([:dead, :dead])
+		game = GameOfLife.new(grid_2)
+		game.evolve_grid
+		expect(game.deads_and_alives).to eq([:dead, :dead])
 	end
 end

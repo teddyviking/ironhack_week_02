@@ -32,7 +32,15 @@ class CellEvolver
 end
 
 class GameOfLife
-	def evolve_grid(grid)
+	attr_reader :grid
+	def initialize(grid)
+		@grid = grid
+	end
+	def evolve_grid
 		grid.cells[0].evolve
+	end
+
+	def deads_and_alives
+		[grid.cells[0].state, grid.cells[1].state]
 	end
 end
