@@ -9,7 +9,7 @@ class Cell
 	end
 
 	def evolve
-		@state = :dead
+		@state = :dead if @neighbours < 2
 	end
 end
 
