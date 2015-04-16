@@ -21,4 +21,9 @@ RSpec.describe "Cell Evolver" do
 		dead_cell.evolve
 		expect(dead_cell.state).to eq(:alive)
 	end
+	it "does not resurrect a cell with 2 neighbours" do
+		dead_cell = Cell.new(:dead, 2, CellEvolver.new)
+		dead_cell.evolve
+		expect(dead_cell.state).to eq(:dead)
+	end
 end
