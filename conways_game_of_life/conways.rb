@@ -10,12 +10,7 @@ class Cell
 
 	def evolve
 		change_state if cell_evolver.evolve?(@state, @neighbours)
-
-		if @state == :alive
-			@state = :dead if @neighbours < 2 || @neighbours > 3
-		else
-			@state = :alive if @neighbours == 3
-		end		
+		return self	
 	end
 
 	def change_state
@@ -26,10 +21,18 @@ end
 
 class CellEvolver
 	def evolve?(state, neighbours)
-		if @state == :alive
-			@neighbours < 2 || @neighbours > 3
-		elsif @state == :dead
-			@neighbours == 3
+		if state == :alive
+			neighbours < 2 || neighbours > 3
+		elsif state == :dead
+			neighbours == 3
+		else
+			raise "Have you created a real cell?"
 		end	
+	end
+end
+
+class GameOfLife
+	def evolve_grid(grid)
+		grid.cells[0].evolve
 	end
 end

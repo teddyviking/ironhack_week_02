@@ -28,3 +28,16 @@ RSpec.describe "Cell Evolver" do
 		expect(dead_cell.state).to eq(:dead)
 	end
 end
+
+RSpec.describe "Game of life" do
+	let (:cell_evolver) {CellEvolver.new}
+	let (:cell){Cell.new(:alive, 0, cell_evolver)}
+	let (:grid_1) do 
+		instance_double("Grid",
+			:cells => [cell])
+	end
+	it "uptades a grid with one cell" do
+		GameOfLife.new.evolve_grid(grid_1)
+		expect(grid_1.cells[0].state).to eq(:dead)
+	end
+end
