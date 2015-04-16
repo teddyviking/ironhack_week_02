@@ -11,7 +11,7 @@ RSpec.describe "Cell Evolver" do
 		alive_cell.evolve
 		expect(alive_cell.state).to eq(:alive)
 	end
-	it "kills a cell thas has four neighbours" do
+	it "kills a cell that has four neighbours" do
 		alive_cell = Cell.new(:alive, 4, CellEvolver.new)
 		alive_cell.evolve
 		expect(alive_cell.state).to eq(:dead)
